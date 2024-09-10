@@ -13,7 +13,7 @@ function Header() {
   return (
     <>
       <header>
-        <Navbar expand="lg">
+        <Navbar expand="lg" className="nav">
           <Container fluid>
             <Navbar.Brand href="#">
               <img src={logo} alt="netflix logo" className="nav__logo" />
