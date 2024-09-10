@@ -15,7 +15,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* padding: 2rem;` */
+  padding: 0;
 }
 /* .nav__items {
   display: inherit;

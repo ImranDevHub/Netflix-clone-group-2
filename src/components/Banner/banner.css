@@ -1,5 +1,5 @@
 .banner {
-  height: 80vh;
+  height: 70vh;
   object-fit: contain;
   position: relative;
 }
@@ -20,5 +20,5 @@
 }
 
 .button {
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 3rem;
 }
