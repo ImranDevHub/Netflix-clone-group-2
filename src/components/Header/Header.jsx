@@ -1,19 +1,44 @@
-import logo from '../../assets/img/logo.png';
-// import { useEffect, useState } from 'react';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import SearchIcon from '@mui/icons-material/Search';
+import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import logo from '../../assets/img/logo.png';
 import userProfile from '../../assets/img/user.png';
 import './header.css';
 
 function Header() {
+  const [isHide, setIsHide] = useState(false);
+
+  useEffect(() => {
+    const banner = document.querySelector('.banner');
+
+    //  console.log(banner);
+
+    const oprCallback = function (entries) {
+      // console.log(entries);
+      const [entry] = entries;
+      // console.log(entry);
+      // console.log(entry.isIntersecting);
+      setIsHide(() => !entry.isIntersecting);
+    };
+
+    const option = {
+      root: null,
+      // rootMargin: '0px',
+      threshold: 0.5,
+    };
+
+    const observe = new IntersectionObserver(oprCallback, option);
+    observe.observe(banner);
+  }, []);
+  console.log(isHide);
   return (
     <>
       <header>
-        <Navbar expand="lg" className="nav">
+        <Navbar expand="lg" className={`nav${isHide ? ' sticky' : ''}`}>
           <Container fluid>
             <Navbar.Brand href="#">
               <img src={logo} alt="netflix logo" className="nav__logo" />
